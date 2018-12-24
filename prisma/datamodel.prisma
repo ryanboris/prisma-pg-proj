@@ -1,4 +1,12 @@
 type User {
-  id: ID! @unique
-  name: String!
+    id: ID! @unique
+    name: String!
+    notes: [Note!]! @relation(name: "NoteAuthor")
+}
+
+type Note {
+    id: ID! @unique
+    title: String!
+    body: String!
+    author: User! @relation(name: "NoteAuthor")
 }
